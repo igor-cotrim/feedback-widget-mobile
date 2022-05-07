@@ -11,7 +11,11 @@ import successImg from '../../assets/success.png'
 
 import { styles } from './styles';
 
-export const Success = () => {
+type SuccessProps = {
+  onSendAnotherFeedback: () => void
+}
+
+export const Success = ({ onSendAnotherFeedback }: SuccessProps) => {
   return (
     <View style={styles.container}>
       <Image
@@ -21,7 +25,10 @@ export const Success = () => {
       <Text style={styles.title}>
         Agradecemos o feedback
       </Text>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={onSendAnotherFeedback}
+      >
         <Text style={styles.buttonTitle}>
           Quero enviar outro
         </Text>
